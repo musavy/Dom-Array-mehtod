@@ -4,3 +4,23 @@ const doubleBtn = document.getElementById("double");
 const showMillionairesBtn = document.getElementById("show-millionaires");
 const sortBtn = document.getElementById("sort");
 const calculateWealthBTn = document.getElementById("calculate-wealth");
+
+let data = [];
+
+getRandomUser();
+getRandomUser();
+getRandomUser();
+
+//fetch random and user add money
+async function getRandomUser() {
+  const res = await fetch("https://randomuser.me/api");
+  const data = await res.json();
+
+  const user = data.results[0];
+
+  const newUser = {
+    name: `${user.name} ${user.name.last}`,
+    money: Math.floor(Math.random() * 100000),
+  };
+  console.log(newUser);
+}
